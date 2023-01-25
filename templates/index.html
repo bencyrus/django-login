@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Home</title>
+</head>
+<body>
+
+    <div class="main">
+        <div class="logout">
+            <p>{{request.user}}</p><a href="{% url 'logout' %}">Logout</a>
+        </div>
+
+        {% block content %}
+
+            <div class="content">
+                <h1>Ben Cyrus's test</h1>
+                <p>
+                    <ol>
+                        <li>
+                            The application utilizes Django's default User model with modifications to enhance functionality within the admin panel.
+                        </li>
+                        <li>
+                            The configuration for static and media URLs is defined in the settings.py file and references the static folder for resources.
+                        </li>
+                        <li>
+                            A custom user creation form is implemented to create new users, which overrides the default form provided by Django.
+                        </li>
+                        <li>
+                            Access to the home page is restricted to authenticated users only.
+                        </li>
+                        <li>
+                            If a user is not authenticated, they will be redirected to the login page for authentication.
+                        </li>
+                        <li>
+                            Once a user is authenticated, they will be redirected to the home page.
+                        </li>
+                        <li>
+                            Upon logging out, the user will be redirected to the login page.
+                        </li>
+                        <li>
+                            After registering, the user will be redirected to the home page.
+                        </li>
+                        <li>
+                            The database currently in use is SQLite3.
+                        </li>
+                        <li>
+                            JWT for tokens and acess management or another database like PostgreSQL could be used to store user data given more time.
+                        </li>
+                        <li>
+                            Validation is implemented for the registration form on the front end to ensure that the user enters a valid username, email, and password.
+                        </li>
+                        <li>
+                            Login validation is handled by the backend and error messages are displayed to the user if the login credentials are invalid. 
+                        </li>
+                    </ol>
+                </p>
+            </div>
+        </div>
+
+    {% endblock %}
+
+</body>
+</html>

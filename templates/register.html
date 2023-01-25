@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Register</title>
+</head>
+
+<body>
+
+    {% block content %}
+
+    <div class="container">
+        <form id="form" class="form" method="POST">
+            
+            {% csrf_token %}
+            <h2 class="center">Register With Us</h2>
+            
+            {% for field in form %}
+                <div class="form-control">
+                    <label for="{{field.name}}">{{field.label}}</label>
+                    {{field}}
+                    <small id="{{field.name}}-error-message">Error message</small>
+                </div>
+            {% endfor %}
+
+            <input type="submit" value="Register" class="btn">
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        
+        </form>
+    </div>
+
+    {% endblock %}
+
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>
+
+
